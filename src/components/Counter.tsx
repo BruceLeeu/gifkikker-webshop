@@ -10,7 +10,7 @@ export default function Counter() {
       <button class="increment" onClick={() => setCount(count() + 1)}>
         Clicks: {count()}
       </button>
-      <button onClick={() => navigate('/product/item123')}>Do Something</button>
+      <button onClick={() => navigate("/product/item123")}>Do Something</button>
     </div>
   );
 }
