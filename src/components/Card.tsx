@@ -7,7 +7,7 @@ interface Card extends JSX.HTMLAttributes<HTMLDivElement> {
 
 export const Card: Component<Card> = ({ children, ...props }) => {
   return (
-    <div class="content" {...props}>
+    <div {...props} class={`card-base ${props.class}`}>
       {children}
     </div>
   );
