@@ -1,9 +1,10 @@
 import { Show } from "solid-js";
 import { useParams } from "solid-start";
+import { Card } from "~/components/Card";
 import { GifkikkerButton } from "~/components/GifkikkerButton";
 import { GifkikkerInput } from "~/components/GifkikkerInput";
 import { PRODUCTS } from "~/const/products";
-import "./product.css";
+import "./product.scss";
 
 export default function Product() {
   const params: { productId: string } = useParams();
@@ -15,16 +16,16 @@ export default function Product() {
         when={currentProduct}
         fallback={<div>no product with id {productId} found</div>}
       >
-        <div class="section">
-          <div class="description">
+        <div class="content">
+          <Card>
             <span class="title">{currentProduct?.brand}</span>
             <p class="text">{currentProduct?.type}</p>
             <span class="price">
               <a>Cake Price: €</a>
               <a id="price">000</a>
             </span>
-          </div>
-          <div class="order-options">
+          </Card>
+          <Card>
             <GifkikkerInput
               type="number"
               id="amount"
@@ -39,11 +40,11 @@ export default function Product() {
               <a id="total">--</a>
             </span>
             <GifkikkerButton>ORDER NOW!</GifkikkerButton>
-          </div>
+          </Card>
         </div>
-        <div class="cake-pic">
+        <Card>
           <img src={currentProduct?.imageUrl} />
-        </div>
+        </Card>
       </Show>
     </div>
   );

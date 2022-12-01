@@ -7,6 +7,6 @@ export interface Beverage {
   imageUrl: string;
 }
 
-type BeverageType = "herfstbok" | "lentebok" | "ipa" | "lager";
+export type BeverageType = "herfstbok" | "lentebok" | "ipa" | "lager";
 type BeverageBrand = "Gifkikker" | "Heineken" | "Grolsch" | "Castle Lite";
 // type ProductType = "keg" | "sixpack" | "gift" | "glass" | "crate" | "champagne"

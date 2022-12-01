@@ -1,5 +1,5 @@
 import { Component, JSX } from "solid-js";
-import "./GifkikkerButton.css";
+import "./GifkikkerButton.scss";
 
 interface GifkikkerButton extends JSX.ButtonHTMLAttributes<HTMLButtonElement> {
   children: JSX.Element;

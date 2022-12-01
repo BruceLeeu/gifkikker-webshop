@@ -1,5 +1,5 @@
 import { Component, JSX } from "solid-js";
-import "./GifkikkerInput.css";
+import "./GifkikkerInput.scss";
 
 interface GifkikkerInput extends JSX.InputHTMLAttributes<HTMLInputElement> {
   variant?: "primary" | "secondary";

@@ -13,3 +13,10 @@ export const PRODUCTS: Map<string, Beverage> = new Map([
     },
   ],
 ]);
+
+export const BEVERAGE_TYPES = new Map([
+  ["lager", "Lager"],
+  ["herfstbok", "Herfstbok (Fall Season Beer)"],
+  ["lentebok", "Lentebok (Spring Season Beer)"],
+  ["ipa", "IPA (India Pale Ale)"],
+]);
