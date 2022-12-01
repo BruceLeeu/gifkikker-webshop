@@ -12,7 +12,7 @@ export const GifkikkerButton: Component<GifkikkerButton> = ({
 }) => {
   return (
     <div>
-      <button class="increment" {...props}>
+      <button class="button-base" {...props}>
         {children}
       </button>
     </div>
