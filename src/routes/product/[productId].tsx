@@ -11,12 +11,17 @@ export default function Product() {
   const productId: string = params.productId;
   const currentProduct = PRODUCTS.get(productId);
   return (
-    <div class="product-content" id="product-content">
+    <div class="product-detail-base" id="product-content">
       <Show
         when={currentProduct}
         fallback={<div>no product with id {productId} found</div>}
       >
-        <div class="content">
+        <Card class="product-detail-base__image-wrapper">
+          <div class="product-detail-base__image">
+            <img src={currentProduct?.imageUrl} />
+          </div>
+        </Card>
+        <div class="product-detail-base__actions">
           <Card>
             <span class="title">{currentProduct?.brand}</span>
             <p class="text">{currentProduct?.type}</p>
@@ -42,9 +47,6 @@ export default function Product() {
             <GifkikkerButton>ORDER NOW!</GifkikkerButton>
           </Card>
         </div>
-        <Card>
-          <img src={currentProduct?.imageUrl} />
-        </Card>
       </Show>
     </div>
   );
