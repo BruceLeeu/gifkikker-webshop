@@ -1,4 +1,5 @@
 import { For } from "solid-js";
+import { A } from "solid-start";
 import { PRODUCTS } from "~/const/products";
 
 export default function Browse() {
@@ -6,7 +7,11 @@ export default function Browse() {
     <div>
       <p>hold my beer</p>
       <For each={Array.from(PRODUCTS.values())}>
-        {(bev) => <div>{bev.type}</div>}
+        {(bev) => (
+          <A href={`/product/${bev.productId}`}>
+            <div>{bev.type}</div>
+          </A>
+        )}
       </For>
     </div>
   );
