@@ -1,14 +1,59 @@
-import { Beverage } from "~/models/beverage";
+import { Product } from "~/models/product";
 
-export const PRODUCTS: Map<string, Beverage> = new Map([
+export const PRODUCTS: Map<string, Product> = new Map([
   [
-    "123-abc",
+    "123-abc-hnk",
     {
-      productId: "123-abc",
-      volume: 123,
-      alcoholPercentage: 50,
-      brand: "lager",
-      type: "Heineken",
+      productId: "123-abc-hnk",
+      title: "Heineken x6",
+      description: "Six pack of Heineken beer",
+      type: "sixpack",
+      stock: 12,
+      sellPrice: 15,
+      makeup: [
+        {
+          partId: "abc-hnk",
+          amount: 5,
+          description: "Single bottle of Heineken",
+          costPrice: 12.5,
+          type: "beer-bottle",
+          contains: {
+            beverageId: "hnk",
+            alcoholPercentage: 6.45,
+            brand: "Heineken",
+            type: "lager",
+          },
+          volume: 4.35, // centilitre
+        },
+      ],
+      imageUrl: "https://ww1.valuecellars.com.au/files/2016/05/93497466-1.png",
+    },
+  ],
+  [
+    "456-def-clt",
+    {
+      productId: "456-def-clt",
+      title: "Heineken x6",
+      description: "Six pack of Heineken beer",
+      type: "sixpack",
+      stock: 6,
+      sellPrice: 15 * 6,
+      makeup: [
+        {
+          partId: "def-clt",
+          amount: 5,
+          description: "Single bottle of Heineken",
+          costPrice: 12.5,
+          type: "beer-bottle",
+          contains: {
+            beverageId: "clt",
+            alcoholPercentage: 6.45,
+            brand: "Heineken",
+            type: "lager",
+          },
+          volume: 4.35, // centilitre
+        },
+      ],
       imageUrl: "https://ww1.valuecellars.com.au/files/2016/05/93497466-1.png",
     },
   ],

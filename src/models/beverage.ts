@@ -1,12 +1,9 @@
 export interface Beverage {
-  productId: string;
-  volume: number; // centilitre
+  beverageId: string;
   alcoholPercentage: number;
-  brand: BeverageType;
-  type: BeverageBrand;
-  imageUrl: string;
+  brand: BeverageBrand;
+  type: BeverageType;
 }
 
 export type BeverageType = "herfstbok" | "lentebok" | "ipa" | "lager";
 type BeverageBrand = "Gifkikker" | "Heineken" | "Grolsch" | "Castle Lite";
-// type ProductType = "keg" | "sixpack" | "gift" | "glass" | "crate" | "champagne"
