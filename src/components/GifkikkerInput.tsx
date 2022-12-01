@@ -5,7 +5,7 @@ interface GifkikkerInput extends JSX.InputHTMLAttributes<HTMLInputElement> {
   variant?: "primary" | "secondary";
 }
 
-export const GifkikkerInput: Component<GifkikkerInput> = ({ ...props }) => {
+export const GifkikkerInput: Component<GifkikkerInput> = (props) => {
   return (
     <div>
       <input class="increment" {...props} />
