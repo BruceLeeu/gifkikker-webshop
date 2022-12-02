@@ -1,0 +1,36 @@
+.base {
+  font-family: inherit;
+  font-size: inherit;
+  padding: 2em 0;
+  color: #335d92;
+  background-color: rgba(68, 107, 158, 0.1);
+  border-radius: 2em;
+  border: 2px solid rgba(68, 107, 158, 0);
+  outline: none;
+  width: 200px;
+  font-variant-numeric: tabular-nums;
+  width: 100%;
+  border-spacing: 0;
+
+  tbody {
+    tr {
+      &:hover {
+        // border: 2px solid #335d92;
+        background-color: rgba(68, 107, 158, 0.2);
+      }
+
+      &:first-child {
+        border-radius: 12px 0 0 12px;
+      }
+      // &:active {
+      //   background-color: rgba(68, 107, 158, 0.2);
+      // }
+      td {
+        max-height: 75px;
+        * {
+          max-height: 75px;
+        }
+      }
+    }
+  }
+}
