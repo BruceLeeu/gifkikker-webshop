@@ -33,8 +33,8 @@ export const PRODUCTS: Map<string, Product> = new Map([
     "456-def-clt",
     {
       productId: "456-def-clt",
-      title: "Heineken x6",
-      description: "Six pack of Heineken beer",
+      title: "Castle Lite x6",
+      description: "Six pack of Castle Lite beer",
       type: "sixpack",
       stock: 6,
       sellPrice: 15 * 6,
@@ -42,7 +42,7 @@ export const PRODUCTS: Map<string, Product> = new Map([
         {
           partId: "def-clt",
           amount: 5,
-          description: "Single bottle of Heineken",
+          description: "Single bottle of Castle Lite",
           costPrice: 12.5,
           type: "beer-bottle",
           contains: {
@@ -54,7 +54,8 @@ export const PRODUCTS: Map<string, Product> = new Map([
           volume: 4.35, // centilitre
         },
       ],
-      imageUrl: "https://ww1.valuecellars.com.au/files/2016/05/93497466-1.png",
+      imageUrl:
+        "https://rtjliquors.co.za/wp-content/uploads/2020/05/CASTLELITE_1.png",
     },
   ],
 ]);

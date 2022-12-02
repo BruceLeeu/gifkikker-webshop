@@ -21,6 +21,15 @@ export interface Part {
   volume: number; // centilitre
 }
 
+export interface CartItem {
+  amount: number;
+  product: Product;
+}
+
+export interface Cart {
+  [productId: string]: CartItem;
+}
+
 type PartType =
   | "keg"
   | "beer-bottle"
