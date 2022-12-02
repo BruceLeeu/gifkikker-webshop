@@ -9,9 +9,7 @@ interface StyledTable extends JSX.HTMLAttributes<HTMLTableElement> {
 export const StyledTable: Component<StyledTable> = (props) => {
   return (
     <div>
-      <table {...props} class={"base"}>
-        {props.children}
-      </table>
+      <table class={"base"}>{props.children}</table>
     </div>
   );
 };

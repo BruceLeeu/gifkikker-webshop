@@ -7,18 +7,16 @@ import { PRODUCTS } from "~/const/products";
 import { Cart, CartItem, Product } from "~/models/product";
 import "./product.scss";
 
-export default function ProductInfo() {
-  const params: { productId: string } = useParams();
-  const productId: string = params.productId;
-  const currentProduct = PRODUCTS.get(productId);
-
+function ProductInfo() {
+  const params = useParams<{ productId: string }>();
+  const currentProduct = PRODUCTS.get(params.productId);
   const [orderAmount, setProductAmount] = createSignal(0);
 
   return (
     <div class="product-detail-base" id="product-content">
       <Show
-        when={currentProduct}
-        fallback={<div>no product with id {productId} found</div>}
+        when={currentProduct !== undefined}
+        fallback={<div>no product with id {params.productId} found</div>}
       >
         <Card class="product-detail-base__image-wrapper">
           <div class="product-detail-base__image">
@@ -74,7 +72,7 @@ export default function ProductInfo() {
             <GifkikkerButton
               disabled={orderAmount() === 0}
               onClick={() =>
-                addToCart(productId, {
+                addToCart(params.productId, {
                   amount: orderAmount(),
                   product: currentProduct as Product,
                 })
@@ -89,8 +87,10 @@ export default function ProductInfo() {
   );
 }
 
-function addToCart(productId: string, cartItem: CartItem) {
+const addToCart = (productId: string, cartItem: CartItem) => {
   const currentCart = JSON.parse(localStorage.getItem("cart") ?? "{}") as Cart;
   const cart: Cart = { ...currentCart, [productId]: cartItem };
   localStorage.setItem("cart", JSON.stringify(cart));
-}
+};
+
+export default ProductInfo;

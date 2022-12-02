@@ -14,7 +14,7 @@ export default function Browse() {
             <A href={`/product/${product.productId}`}>
               <Card class="products__container__item">
                 <img src={product.imageUrl} />
-                <div>{product.description}</div>
+                <div>{product.title}</div>
               </Card>
             </A>
           )}
