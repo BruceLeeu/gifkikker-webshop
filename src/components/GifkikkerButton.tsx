@@ -8,10 +8,8 @@ interface GifkikkerButton extends JSX.ButtonHTMLAttributes<HTMLButtonElement> {
 
 export const GifkikkerButton: Component<GifkikkerButton> = (props) => {
   return (
-    <div>
-      <button {...props} class="button-base">
-        {props.children}
-      </button>
-    </div>
+    <button {...props} class="button-base">
+      {props.children}
+    </button>
   );
 };
