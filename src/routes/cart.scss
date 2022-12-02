@@ -1,0 +1,12 @@
+@import "~/styles/_variables.scss";
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: end;
+}
