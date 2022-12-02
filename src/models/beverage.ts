@@ -5,5 +5,18 @@ export interface Beverage {
   type: BeverageType;
 }
 
-export type BeverageType = "herfstbok" | "lentebok" | "ipa" | "lager";
-type BeverageBrand = "Gifkikker" | "Heineken" | "Grolsch" | "Castle Lite";
+export type BeverageType =
+  | "herfstbok"
+  | "lentebok"
+  | "ipa"
+  | "lager"
+  | "draft"
+  | "champagne";
+type BeverageBrand =
+  | "Gifkikker"
+  | "Heineken"
+  | "Grolsch"
+  | "Castle Lite"
+  | "Stella Artois"
+  | "Crate"
+  | "J.C. le Roux";

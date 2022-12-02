@@ -4,7 +4,7 @@ export interface Product {
   productId: string;
   title: string;
   description: string;
-  type: ProductType;
+  type: ProductType | PartType;
   stock: number;
   sellPrice: number;
   makeup: Part[];
@@ -17,8 +17,8 @@ export interface Part {
   description: string;
   costPrice: number;
   type: PartType;
-  contains: Beverage;
-  volume: number; // centilitre
+  contains?: Beverage;
+  volume?: number; // centilitre
 }
 
 export interface CartItem {
