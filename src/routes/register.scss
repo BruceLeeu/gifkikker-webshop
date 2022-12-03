@@ -1,0 +1,28 @@
+@import "~/styles/_variables.scss";
+
+.details {
+  &__personal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+  }
+  &__address {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+
+    @media only screen and (max-width: 550px) {
+      grid-template-columns: 1fr;
+    }
+
+    > *:first-of-type {
+      grid-column: span 2;
+
+      @media only screen and (max-width: 550px) {
+        grid-column: span 1;
+      }
+    }
+  }
+}
