@@ -7,8 +7,9 @@ interface GifkikkerInput extends JSX.InputHTMLAttributes<HTMLInputElement> {
 
 export const GifkikkerInput: Component<GifkikkerInput> = (props) => {
   return (
-    <div>
-      <input class="increment" {...props} />
+    <div class="input-group">
+      <input class="input-group__box" {...props} placeholder={""} />
+      <span class="input-group__container">{props.placeholder}</span>
     </div>
   );
 };

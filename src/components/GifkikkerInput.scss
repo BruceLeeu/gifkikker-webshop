@@ -1,20 +1,62 @@
-.increment {
-  font-family: inherit;
-  font-size: inherit;
-  padding: 1em 2em;
-  color: #335d92;
-  background-color: rgba(68, 107, 158, 0.1);
-  border-radius: 2em;
-  border: 2px solid rgba(68, 107, 158, 0);
-  outline: none;
-  width: 200px;
-  font-variant-numeric: tabular-nums;
+.input-group {
+  position: relative;
+  width: 250px;
+
+  input {
+    font-family: inherit;
+    background-color: rgba(68, 107, 158, 0.1);
+    width: 200px;
+    font-variant-numeric: tabular-nums;
+    width: calc(100% - 4em);
+    padding: 1em 2em;
+    border: 2px solid rgba(68, 107, 158, 0);
+    border-radius: 2em;
+    outline: none;
+    color: #335d92;
+    font-size: 1em;
+
+    &:focus {
+      border: 2px solid #335d92;
+    }
+
+    &:active {
+      background-color: rgba(68, 107, 158, 0.2);
+    }
+
+    &:not(:placeholder-shown) ~ span,
+    &:focus ~ span {
+      transform: translateX(1em) translateY(-0.65em);
+      font-size: 0.65em;
+      padding: 1em 2em;
+      color: #335d92;
+    }
+  }
+
+  span {
+    font-family: inherit;
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    padding: 1em 2em;
+    pointer-events: none;
+    font-size: 1em;
+    color: black;
+    transition: 0.5s;
+  }
 }
 
-.increment:focus {
-  border: 2px solid #335d92;
-}
+// .increment {
+//   font-family: inherit;
+//   padding: 1em 2em;
+//   background-color: rgba(68, 107, 158, 0.1);
+//   width: 200px;
+//   font-variant-numeric: tabular-nums;
+// }
 
-.increment:active {
-  background-color: rgba(68, 107, 158, 0.2);
-}
+// .increment:focus {
+//   border: 2px solid #335d92;
+// }
+
+// .increment:active {
+//   background-color: rgba(68, 107, 158, 0.2);
+// }
