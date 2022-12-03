@@ -263,5 +263,18 @@ export const BEVERAGE_TYPES = new Map([
 ]);
 
 export const EXISTING_USERS = new Map([
-  ["louis@louislagrange.co.za", { name: "Louis" }],
+  [
+    "louis@louislagrange.co.za",
+    {
+      address: {
+        city: "Cape Town",
+        country: "South Africa",
+        postalCode: "7580",
+        province: "Western Cape",
+        street: "10 Waboom Avenue",
+      },
+      email: "louis@louislagrange.co.za",
+      name: "Louis",
+    },
+  ],
 ]);
