@@ -1,18 +1,53 @@
-import { createSignal, For, onMount } from "solid-js";
+import {
+  createEffect,
+  createResource,
+  createSignal,
+  For,
+  onMount,
+  Show,
+} from "solid-js";
 import { useNavigate } from "solid-start";
+import { Card } from "~/components/Card";
 import { GifkikkerButton } from "~/components/GifkikkerButton";
+import { GifkikkerInput } from "~/components/GifkikkerInput";
+import { Modal } from "~/components/Modal";
+import { Spinner } from "~/components/Spinner";
 import { StyledTable } from "~/components/StyledTable";
+import { EXISTING_USERS } from "~/const/products";
 import { Cart } from "~/models/product";
+import { getCalculatedCartTotal } from "~/utils/calculations";
 import "./cart.scss";
+
+const fetchUser = async (id: string) => {
+  return new Promise<{ name: string }>((resolve, reject) => {
+    setTimeout(() => {
+      const found = EXISTING_USERS.get(id);
+      if (found !== undefined) {
+        resolve(found);
+      } else {
+        reject("{ n }");
+      }
+    }, 1234);
+  });
+};
 
 export default function CartPage() {
   const [currentCart, setCurrentCart] = createSignal<Cart>(
     JSON.parse("{}") as Cart
   );
   const navigate = useNavigate();
+  const [showModal, toggleModal] = createSignal(false);
 
   onMount(() => {
     setCurrentCart(JSON.parse(localStorage.getItem("cart") ?? "{}") as Cart);
+  });
+
+  const [userEmail, setUserEmail] = createSignal<string>();
+  const [user] = createResource(userEmail, fetchUser);
+
+  createEffect(() => {
+    console.log(user);
+    console.log(userEmail());
   });
 
   if (currentCart() !== undefined) {
@@ -61,9 +96,41 @@ export default function CartPage() {
             </For>
           </tbody>
         </StyledTable>
+        <span>{getCalculatedCartTotal(currentCart())[0]}</span>
+        <span>{getCalculatedCartTotal(currentCart())[1]}</span>
         <div class="button-container">
-          <GifkikkerButton>Continue to shipping →</GifkikkerButton>
+          <GifkikkerButton onClick={() => toggleModal((b) => !b)}>
+            Continue to shipping →
+          </GifkikkerButton>
         </div>
+        {showModal() ? (
+          <Modal onClick={() => toggleModal((b) => !b)}>
+            <Card>
+              Areyou an existing customer?
+              <GifkikkerButton
+                onClick={() => navigate(`/order?email=${userEmail()}`)}
+              >
+                Existing customer
+              </GifkikkerButton>
+              <GifkikkerButton onClick={() => navigate(`/register`)}>
+                New customer
+              </GifkikkerButton>
+              <GifkikkerInput
+                onInput={(e) => setUserEmail(e.currentTarget.value)}
+                placeholder={`email address`}
+              />
+              <Show when={user && !user.loading} fallback={<Spinner />}>
+                {user.error ? (
+                  <span>{user.error}</span>
+                ) : (
+                  <span>{user.latest?.name}</span>
+                )}
+              </Show>
+            </Card>
+          </Modal>
+        ) : (
+          <></>
+        )}
       </main>
     );
   }

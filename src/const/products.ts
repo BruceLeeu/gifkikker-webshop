@@ -261,3 +261,7 @@ export const BEVERAGE_TYPES = new Map([
   ["lentebok", "Lentebok (Spring Season Beer)"],
   ["ipa", "IPA (India Pale Ale)"],
 ]);
+
+export const EXISTING_USERS = new Map([
+  ["louis@louislagrange.co.za", { name: "Louis" }],
+]);
