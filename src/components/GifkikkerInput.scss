@@ -1,11 +1,10 @@
 .input-group {
   position: relative;
-  width: 250px;
+  width: 100%;
 
   input {
     font-family: inherit;
     background-color: rgba(68, 107, 158, 0.1);
-    width: 200px;
     font-variant-numeric: tabular-nums;
     width: calc(100% - 4em);
     padding: 1em 2em;
@@ -40,7 +39,7 @@
     padding: 1em 2em;
     pointer-events: none;
     font-size: 1em;
-    color: black;
+    color: #335d92;
     transition: 0.5s;
   }
 }
