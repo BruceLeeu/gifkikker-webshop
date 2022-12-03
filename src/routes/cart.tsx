@@ -16,6 +16,7 @@ import { StyledTable } from "~/components/StyledTable";
 import { EXISTING_USERS } from "~/const/products";
 import { Cart } from "~/models/product";
 import { getCalculatedCartTotal } from "~/utils/calculations";
+import { debounce } from "@solid-primitives/scheduled";
 import "./cart.scss";
 
 const fetchUser = async (id: string) => {
@@ -44,6 +45,20 @@ export default function CartPage() {
 
   const [userEmail, setUserEmail] = createSignal<string>();
   const [user] = createResource(userEmail, fetchUser);
+
+  const trigger = debounce(
+    (
+      e: InputEvent & {
+        currentTarget: HTMLInputElement;
+        target: Element;
+      }
+    ) => {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      setUserEmail(e.target.value);
+    },
+    500
+  );
 
   createEffect(() => {
     console.log(user);
@@ -108,17 +123,17 @@ export default function CartPage() {
             <Card>
               Areyou an existing customer?
               <GifkikkerButton
-                onClick={() => navigate(`/order?email=${userEmail()}`)}
+                onClick={() => {
+                  localStorage.setItem("user", JSON.stringify(user.latest));
+                  navigate(`/order?email=${userEmail()}`);
+                }}
               >
                 Existing customer
               </GifkikkerButton>
               <GifkikkerButton onClick={() => navigate(`/register`)}>
                 New customer
               </GifkikkerButton>
-              <GifkikkerInput
-                onInput={(e) => setUserEmail(e.currentTarget.value)}
-                placeholder={`email address`}
-              />
+              <GifkikkerInput onInput={trigger} placeholder={`email address`} />
               <Show when={user && !user.loading} fallback={<Spinner />}>
                 {user.error ? (
                   <span>{user.error}</span>
