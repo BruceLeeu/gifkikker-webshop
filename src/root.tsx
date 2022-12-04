@@ -28,8 +28,8 @@ export default function Root() {
             <nav>
               {/* <A href="/">Index</A> */}
               <img src="../public/topicus-logo.png" />
-              <A href="/cart">Cart</A>
               <A href="/browse">Products</A>
+              <A href="/cart">Cart</A>
               <A href="/admin">Admin</A>
             </nav>
             <Routes>
