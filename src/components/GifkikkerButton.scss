@@ -1,10 +1,12 @@
+@import "~/styles/_variables.scss";
+
 .button-base {
   font-family: inherit;
   font-size: inherit;
   padding: 1em 2em;
   color: #335d92;
   background-color: rgba(68, 107, 158, 0.1);
-  border-radius: 2em;
+  border-radius: $border-radius;
   border: 2px solid rgba(68, 107, 158, 0);
   outline: none;
   width: 200px;

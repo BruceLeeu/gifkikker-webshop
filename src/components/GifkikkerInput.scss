@@ -1,3 +1,5 @@
+@import "~/styles/_variables.scss";
+
 .input-group {
   position: relative;
   width: 100%;
@@ -19,7 +21,7 @@
   input:not([type="radio"]) {
     width: calc(100% - 4em);
     padding: 1em 2em;
-    border-radius: 2em;
+    border-radius: $border-radius;
 
     &:focus {
       border: 2px solid #335d92;
@@ -53,19 +55,3 @@
     transition: 0.5s;
   }
 }
-
-// .increment {
-//   font-family: inherit;
-//   padding: 1em 2em;
-//   background-color: rgba(68, 107, 158, 0.1);
-//   width: 200px;
-//   font-variant-numeric: tabular-nums;
-// }
-
-// .increment:focus {
-//   border: 2px solid #335d92;
-// }
-
-// .increment:active {
-//   background-color: rgba(68, 107, 158, 0.2);
-// }
