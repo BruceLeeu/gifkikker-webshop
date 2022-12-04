@@ -25,10 +25,13 @@ export default function Root() {
       <Body>
         <Suspense>
           <ErrorBoundary>
-            <A href="/">Index</A>
-            <A href="/cart">Cart</A>
-            <A href="/browse">Products</A>
-            <A href="/admin">Admin</A>
+            <nav>
+              {/* <A href="/">Index</A> */}
+              <img src="../public/topicus-logo.png" />
+              <A href="/cart">Cart</A>
+              <A href="/browse">Products</A>
+              <A href="/admin">Admin</A>
+            </nav>
             <Routes>
               <FileRoutes />
             </Routes>

@@ -1,16 +1,12 @@
 import { useNavigate } from "@solidjs/router";
 import {
   createEffect,
-  createResource,
   createSignal,
-  For,
   Match,
   onMount,
   Show,
   Switch,
 } from "solid-js";
-import { useLocation } from "solid-start";
-import { fetchUser } from "~/api/api";
 import { Card } from "~/components/Card";
 import { GifkikkerButton } from "~/components/GifkikkerButton";
 import { GifkikkerInput } from "~/components/GifkikkerInput";
@@ -64,24 +60,15 @@ export default function OrderPage() {
     const newOrders = { ...currentOrders, [orderId]: newOrder };
     console.log(newOrders);
     localStorage.setItem("orders", JSON.stringify(newOrders));
+    localStorage.removeItem("cart");
     navigate(`/confirm`);
   };
 
   return (
     <main>
-      YOur order here {user()?.email}
+      <h1>Order Summary</h1>
       <Card>
         <div>
-          {/* <For
-            each={Object.entries(currentCart())}
-            fallback={<div>loading</div>}
-          >
-            {(cartItem) => (
-              <div>
-                <div>{cartItem[1].product.title}</div>
-              </div>
-            )}
-          </For> */}
           <h3>Items total</h3>
         </div>
         {`€ ${totalCost()}`}
@@ -224,7 +211,12 @@ export default function OrderPage() {
         </Card>
       </div>
       <div class="button-container">
-        <GifkikkerButton onClick={() => placeOrder()}>
+        <GifkikkerButton
+          onClick={() => placeOrder()}
+          disabled={
+            selectedPayment() === undefined || selectedShipping() === undefined
+          }
+        >
           Confirm order →
         </GifkikkerButton>
       </div>

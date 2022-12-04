@@ -5,10 +5,17 @@
     display: grid;
     grid-template-columns: repeat(5, 1fr);
 
+    @media only screen and (max-width: 800px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @media only screen and (max-width: 500px) {
+      grid-template-columns: repeat(1, 1fr);
+    }
+
     &__item {
       transition: all $duration-short;
       &:hover {
-        background-color: $primary-yellow-100;
+        background-color: $primary-teal-100;
         transform: scale(1.1);
       }
     }

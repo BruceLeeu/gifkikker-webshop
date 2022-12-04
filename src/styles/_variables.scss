@@ -1,14 +1,15 @@
-//COLORS
+// COLORS & SHADOWS
 $primary-yellow-25: #fff5d6;
 $primary-yellow-400: #ffcf33;
 $primary-yellow-300: #ffd755;
 $primary-yellow-200: #ffdf77;
 $primary-yellow-100: #fff5d6;
 $primary-teal-25: #dcede8;
-$primary-teal-400: #4fa58c;
+$primary-teal-100: #bbdfd4;
+$primary-teal-200: #96d4c2;
 $primary-teal-300: #6cb49f;
-$primary-teal-25: #dcede8;
-$primary-purple-400: #492b7c;
+$primary-teal-400: #4fa58c;
+$primary-purple-400: #1d0c39;
 $primary-purple-300: #674e92;
 $primary-purple-25: #dbd5e5;
 $primary-white: #fff;
@@ -24,15 +25,20 @@ $primary-grey-800: #424242;
 $primary-grey-900: #212121;
 $primary-black: #000;
 $primary-black-200: #00000026;
+$primary-modal-bg: #09011686;
 $status-error: #b00020;
-$crypto-btc: #f7931a;
-$crypto-eth: #627eea;
-$crypto-usdt: #4db6ac;
+$shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 
-//TRANSITION TIMES
+// TRANSITION TIMES
 $duration-short: 175ms;
 $duration-medium: 350ms;
 $duration-long: 700ms;
 
-//SIZES
+// SIZES
 $border-radius: 1.5em;
+$padding-sm: 0.5em;
+$padding-md: 1em;
+$padding-lg: 2em;
+$gap-sm: 0.5em;
+$gap-md: 1em;
+$gap-lg: 2em;

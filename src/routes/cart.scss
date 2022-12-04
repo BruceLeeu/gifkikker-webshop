@@ -10,3 +10,9 @@ main {
   display: flex;
   justify-content: end;
 }
+
+.cart-modal {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}

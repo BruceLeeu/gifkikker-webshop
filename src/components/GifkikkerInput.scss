@@ -4,16 +4,16 @@
   position: relative;
   width: 100%;
   display: flex;
-  gap: 0.5em;
+  gap: $gap-sm;
 
   input {
     font-family: inherit;
-    background-color: rgba(68, 107, 158, 0.1);
+    background-color: $primary-teal-25;
     font-variant-numeric: tabular-nums;
-    border: 2px solid rgba(68, 107, 158, 0);
+    border: 2px solid $primary-teal-25;
     margin: 0;
     outline: none;
-    color: #335d92;
+    color: $primary-teal-400;
     font-size: 1em;
   }
 
@@ -24,25 +24,25 @@
     border-radius: $border-radius;
 
     &:focus {
-      border: 2px solid #335d92;
+      border: 2px solid $primary-teal-400;
     }
 
     &:active {
-      background-color: rgba(68, 107, 158, 0.2);
+      background-color: $primary-teal-100;
     }
 
     &:not(:placeholder-shown) ~ label,
     &:focus ~ label {
       transform: translateX(1em) translateY(-0.65em);
       font-size: 0.65em;
-      padding: 1em 2em;
-      color: #335d92;
+      padding: $padding-md $padding-lg;
+      color: $primary-teal-400;
     }
   }
 
   label {
     font-family: inherit;
-    color: #335d92;
+    color: $primary-teal-400;
     font-size: 1em;
   }
   // Excludes this styling for labels belonging to radio buttons
@@ -52,6 +52,6 @@
     top: 2px;
     padding: 1em 2em;
     pointer-events: none;
-    transition: 0.5s;
+    transition: $duration-medium;
   }
 }

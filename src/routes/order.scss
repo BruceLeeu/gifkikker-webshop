@@ -13,7 +13,6 @@ fieldset {
   gap: 16px;
 
   h3 {
-    // text-align: left;
     width: 100%;
     box-sizing: border-box;
   }
@@ -58,22 +57,4 @@ fieldset {
       font-weight: 800;
     }
   }
-
-  // &__address {
-  //   display: grid;
-  //   grid-template-columns: repeat(2, 1fr);
-  //   gap: 16px;
-
-  //   @media only screen and (max-width: 550px) {
-  //     grid-template-columns: 1fr;
-  //   }
-
-  //   > *:first-of-type {
-  //     grid-column: span 2;
-
-  //     @media only screen and (max-width: 550px) {
-  //       grid-column: span 1;
-  //     }
-  //   }
-  // }
 }

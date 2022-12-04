@@ -3,15 +3,9 @@ import { Title } from "solid-start";
 export default function Home() {
   return (
     <main>
-      <Title>Hello World</Title>
-      <h1>Hello world!</h1>
-      <p>
-        Visit{" "}
-        <a href="https://start.solidjs.com" target="_blank">
-          start.solidjs.com
-        </a>{" "}
-        to learn how to build SolidStart apps.
-      </p>
+      <Title>Welcome</Title>
+      <h1>Welcome to the Gifkikker Webshop!</h1>
+      <h3>Select 'Products' to start browsing</h3>
     </main>
   );
 }

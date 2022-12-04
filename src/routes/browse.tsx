@@ -1,9 +1,8 @@
 import { For, Show } from "solid-js";
-import { A, createRouteData, RouteDataArgs, useRouteData } from "solid-start";
+import { A, createRouteData, useRouteData } from "solid-start";
 import { fetchProducts } from "~/api/api";
 import { Card } from "~/components/Card";
 import { Spinner } from "~/components/Spinner";
-import { PRODUCTS } from "~/const/products";
 import "./browse.scss";
 
 export function routeData() {
@@ -18,7 +17,6 @@ export default function Browse() {
 
   return (
     <div class="products">
-      <p>hold my beer</p>
       <div class="products__container">
         <Show when={products?.loading}>
           <Spinner />

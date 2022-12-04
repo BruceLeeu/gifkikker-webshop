@@ -1,6 +1,6 @@
 import { useNavigate } from "@solidjs/router";
 import { createSignal, For, onMount, Show } from "solid-js";
-import { createRouteData } from "solid-start";
+
 import { Card } from "~/components/Card";
 import { StyledTable } from "~/components/StyledTable";
 import { Orders } from "~/models/order";
@@ -18,7 +18,6 @@ export default function Browse() {
   if (orders() !== undefined) {
     return (
       <div class="orders">
-        <p>hold my beer</p>
         <div class="orders__container">
           <Show when={orders() !== undefined}>
             <For

@@ -14,4 +14,20 @@
     justify-content: center;
     align-items: center;
   }
+
+  .order-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+  }
+
+  .product-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    span:first-of-type {
+      font-weight: 800;
+      font-size: 2em;
+    }
+  }
 }

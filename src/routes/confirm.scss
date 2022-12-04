@@ -1,0 +1,17 @@
+@import "~/styles/_variables.scss";
+
+.special-card {
+  background-color: $primary-teal-25;
+
+  &__svg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    svg {
+      max-width: 200px;
+      max-height: 200px;
+      fill: $primary-teal-400;
+    }
+  }
+}

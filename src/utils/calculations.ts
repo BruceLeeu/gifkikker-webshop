@@ -1,5 +1,5 @@
 import { createSignal } from "solid-js";
-import { Cart } from "~/models/product";
+import { Cart } from "~/models/order";
 
 export function getCalculatedCartTotal(cart: Cart) {
   const [totalItems, setTotalItems] = createSignal(0);

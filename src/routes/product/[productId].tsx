@@ -1,4 +1,5 @@
-import { createResource, createSignal, For, Show } from "solid-js";
+import { useNavigate } from "@solidjs/router";
+import { createSignal, For, Show } from "solid-js";
 import {
   createRouteData,
   RouteDataArgs,
@@ -10,7 +11,6 @@ import { Card } from "~/components/Card";
 import { GifkikkerButton } from "~/components/GifkikkerButton";
 import { GifkikkerInput } from "~/components/GifkikkerInput";
 import { Spinner } from "~/components/Spinner";
-import { PRODUCTS } from "~/const/products";
 import { Cart, CartItem } from "~/models/order";
 import { Product } from "~/models/product";
 import "./product.scss";
@@ -29,6 +29,7 @@ export function routeData({ params }: RouteDataArgs) {
 
 function ProductInfo() {
   const params = useParams<{ productId: string }>();
+  const navigate = useNavigate();
   const currentProduct = useRouteData<typeof routeData>();
   const [orderAmount, setProductAmount] = createSignal(0);
 
@@ -48,13 +49,13 @@ function ProductInfo() {
               </div>
             </Card>
             <div class="product-detail-base__actions">
-              <Card>
+              <Card class="product-info">
                 <span class="title">{currentProduct()?.title}</span>
-                <p class="text">{currentProduct()?.description}</p>
-                <p class="text">
+                <p>{currentProduct()?.description}</p>
+                <label>
                   {(currentProduct()?.stock ?? 0) - orderAmount()} in stock
-                </p>
-                <p class="text">Includes:</p>
+                </label>
+                <label>Includes:</label>
                 <For
                   each={currentProduct()?.makeup}
                   fallback={<div>...nothing here...</div>}
@@ -74,7 +75,7 @@ function ProductInfo() {
                   <a id="price">{currentProduct()?.sellPrice ?? 0}</a>
                 </span>
               </Card>
-              <Card>
+              <Card class="order-card">
                 <GifkikkerInput
                   type="number"
                   id="amount"
@@ -86,21 +87,21 @@ function ProductInfo() {
                   }}
                   max={currentProduct()?.stock}
                 />
-                <span class="error-msg" id="error-msg"></span>
                 <span class="total">
-                  <a>Total: R</a>
+                  <a>Total: €</a>
                   <a id="total">
                     {(currentProduct()?.sellPrice ?? 0) * orderAmount()}
                   </a>
                 </span>
                 <GifkikkerButton
                   disabled={orderAmount() === 0}
-                  onClick={() =>
+                  onClick={() => {
                     addToCart(params.productId, {
                       amount: orderAmount(),
                       product: currentProduct() as Product,
-                    })
-                  }
+                    });
+                    navigate(`/cart`);
+                  }}
                 >
                   ORDER {orderAmount()} NOW!
                 </GifkikkerButton>

@@ -4,11 +4,18 @@
   &__container {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: $gap-sm;
 
     &__details {
       display: flex;
       flex-direction: column;
+
+      label {
+        font-weight: 700;
+        label {
+          font-weight: normal;
+        }
+      }
     }
   }
 }

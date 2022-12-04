@@ -3,27 +3,27 @@
 .button-base {
   font-family: inherit;
   font-size: inherit;
-  padding: 1em 2em;
-  color: #335d92;
-  background-color: rgba(68, 107, 158, 0.1);
+  padding: $padding-sm $padding-md;
+  color: $primary-teal-400;
+  background-color: $primary-teal-25;
   border-radius: $border-radius;
-  border: 2px solid rgba(68, 107, 158, 0);
+  border: 2px solid $primary-teal-25;
   outline: none;
-  width: 200px;
   font-variant-numeric: tabular-nums;
-  transition: all 250ms ease-in-out;
+  transition: all $duration-short ease-in-out;
   font-weight: 700;
 
   &:focus {
-    border: 2px solid #335d92;
+    border: 2px solid $primary-teal-400;
   }
   &:hover {
-    background-color: black;
+    background-color: $primary-teal-100;
   }
   &:active {
-    background-color: rgba(68, 107, 158, 0.2);
+    background-color: $primary-grey-100;
   }
   &:disabled {
-    background-color: gray;
+    background-color: $primary-grey-300;
+    color: $primary-grey-500;
   }
 }

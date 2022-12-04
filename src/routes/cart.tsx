@@ -25,6 +25,7 @@ export default function CartPage() {
   );
   const navigate = useNavigate();
   const [showModal, toggleModal] = createSignal(false);
+  const [existingCustomer, setExistingCustomer] = createSignal(false);
 
   onMount(() => {
     setCurrentCart(JSON.parse(localStorage.getItem("cart") ?? "{}") as Cart);
@@ -100,8 +101,13 @@ export default function CartPage() {
             </For>
           </tbody>
         </StyledTable>
-        <span>{getCalculatedCartTotal(currentCart())[0]}</span>
-        <span>{getCalculatedCartTotal(currentCart())[1]}</span>
+        <span>
+          <label>Total Items: </label>
+          {getCalculatedCartTotal(currentCart())[0]}
+        </span>
+        <span>
+          <label>Total Cost: </label>€{getCalculatedCartTotal(currentCart())[1]}
+        </span>
         <div class="button-container">
           <GifkikkerButton onClick={() => toggleModal((b) => !b)}>
             Continue to shipping →
@@ -109,26 +115,44 @@ export default function CartPage() {
         </div>
         {showModal() ? (
           <Modal onClick={() => toggleModal((b) => !b)}>
-            <Card>
+            <Card class="cart-modal">
               Areyou an existing customer?
-              <GifkikkerButton
-                onClick={() => {
-                  localStorage.setItem("user", JSON.stringify(user.latest));
-                  navigate(`/order`);
-                }}
-              >
-                Existing customer
-              </GifkikkerButton>
               <GifkikkerButton onClick={() => navigate(`/register`)}>
                 New customer
               </GifkikkerButton>
-              <GifkikkerInput onInput={trigger} placeholder={`email address`} />
-              <Show when={user && !user.loading} fallback={<Spinner />}>
-                {user.error ? (
-                  <span>{user.error}</span>
-                ) : (
-                  <span>{user.latest?.name}</span>
-                )}
+              <GifkikkerButton
+                onClick={() => {
+                  if (existingCustomer()) {
+                    localStorage.setItem("user", JSON.stringify(user.latest));
+                    navigate(`/order`);
+                  } else {
+                    setExistingCustomer(true);
+                  }
+                }}
+                disabled={
+                  user?.error ||
+                  user?.loading ||
+                  (user() === undefined && existingCustomer())
+                }
+              >
+                {existingCustomer()
+                  ? `Confirm existing customer`
+                  : `Existing customer`}
+              </GifkikkerButton>
+              <Show when={existingCustomer()}>
+                <GifkikkerInput
+                  onInput={trigger}
+                  placeholder={`email address`}
+                />
+                <Show when={user && !user.loading} fallback={<Spinner />}>
+                  {user.error ? (
+                    <span>{user.error}</span>
+                  ) : (
+                    <span>
+                      {user() !== undefined && `Welcome, ${user.latest?.name}!`}
+                    </span>
+                  )}
+                </Show>
               </Show>
             </Card>
           </Modal>
