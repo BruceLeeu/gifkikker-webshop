@@ -13,24 +13,11 @@ import { GifkikkerInput } from "~/components/GifkikkerInput";
 import { Modal } from "~/components/Modal";
 import { Spinner } from "~/components/Spinner";
 import { StyledTable } from "~/components/StyledTable";
-import { EXISTING_USERS } from "~/const/products";
 import { Cart } from "~/models/product";
 import { getCalculatedCartTotal } from "~/utils/calculations";
 import { debounce } from "@solid-primitives/scheduled";
 import "./cart.scss";
-
-const fetchUser = async (id: string) => {
-  return new Promise<{ name: string }>((resolve, reject) => {
-    setTimeout(() => {
-      const found = EXISTING_USERS.get(id);
-      if (found !== undefined) {
-        resolve(found);
-      } else {
-        reject("{ n }");
-      }
-    }, 1234);
-  });
-};
+import { fetchUser } from "~/api/api";
 
 export default function CartPage() {
   const [currentCart, setCurrentCart] = createSignal<Cart>(
@@ -79,7 +66,10 @@ export default function CartPage() {
             </tr>
           </thead>
           <tbody>
-            <For each={Object.entries(currentCart())}>
+            <For
+              each={Object.entries(currentCart())}
+              /* fallback={<div>loading</div>} */
+            >
               {(cartItem) => (
                 <tr
                   onClick={() =>
