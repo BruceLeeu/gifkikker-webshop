@@ -2,7 +2,7 @@ import { createEffect, createSignal, onMount } from "solid-js";
 import { useNavigate } from "solid-start";
 import { GifkikkerButton } from "~/components/GifkikkerButton";
 import { GifkikkerInput } from "~/components/GifkikkerInput";
-import { Cart } from "~/models/product";
+import { Cart } from "~/models/order";
 import { User } from "~/models/user";
 import "./register.scss";
 

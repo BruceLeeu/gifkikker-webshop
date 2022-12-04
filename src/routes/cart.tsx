@@ -13,7 +13,7 @@ import { GifkikkerInput } from "~/components/GifkikkerInput";
 import { Modal } from "~/components/Modal";
 import { Spinner } from "~/components/Spinner";
 import { StyledTable } from "~/components/StyledTable";
-import { Cart } from "~/models/product";
+import { Cart } from "~/models/order";
 import { getCalculatedCartTotal } from "~/utils/calculations";
 import { debounce } from "@solid-primitives/scheduled";
 import "./cart.scss";
@@ -40,9 +40,8 @@ export default function CartPage() {
         target: Element;
       }
     ) => {
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
-      setUserEmail(e.target.value);
+      // Because selection returns a HTMLInputElement
+      setUserEmail((e.target as HTMLInputElement).value);
     },
     500
   );
@@ -115,7 +114,7 @@ export default function CartPage() {
               <GifkikkerButton
                 onClick={() => {
                   localStorage.setItem("user", JSON.stringify(user.latest));
-                  navigate(`/order?email=${userEmail()}`);
+                  navigate(`/order`);
                 }}
               >
                 Existing customer
