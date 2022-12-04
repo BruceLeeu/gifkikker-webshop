@@ -55,6 +55,11 @@ export default function OrderPage() {
       paymentMethod: selectedPayment() ?? "",
       shippingMethod: selectedShipping() ?? "",
       status: OrderStatus.PENDING,
+      shippingAddress: `${user()?.address?.street}, 
+      ${user()?.address?.city}, 
+      ${user()?.address?.province}, 
+      ${user()?.address?.country}, 
+      ${user()?.address?.postalCode}`,
     };
     const newOrders = { ...currentOrders, [orderId]: newOrder };
     console.log(newOrders);

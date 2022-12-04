@@ -1,0 +1,14 @@
+@import "~/styles/_variables.scss";
+
+.orders {
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    &__details {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}

@@ -28,6 +28,7 @@ export default function Root() {
             <A href="/">Index</A>
             <A href="/cart">Cart</A>
             <A href="/browse">Products</A>
+            <A href="/admin">Admin</A>
             <Routes>
               <FileRoutes />
             </Routes>

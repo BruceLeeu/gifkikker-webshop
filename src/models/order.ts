@@ -14,6 +14,7 @@ export interface Order {
   email: string;
   items: Cart;
   shippingMethod: string;
+  shippingAddress: string;
   paymentMethod: string;
   orderTotal: number;
   status: OrderStatus;
