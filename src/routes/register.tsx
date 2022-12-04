@@ -25,7 +25,6 @@ export default function RegisterPage() {
   const [user, setUser] = createSignal<User>(emptyUser, { equals: false });
 
   const navigate = useNavigate();
-  const [showModal, toggleModal] = createSignal(false);
 
   onMount(() => {
     setCurrentCart(JSON.parse(localStorage.getItem("cart") ?? "{}") as Cart);
@@ -136,7 +135,7 @@ export default function RegisterPage() {
       <GifkikkerButton
         onClick={() => {
           localStorage.setItem("user", JSON.stringify(user()));
-          navigate(`/order?email=${user()?.email}`);
+          navigate(`/order`);
         }}
       >
         Register
