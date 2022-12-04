@@ -1,0 +1,79 @@
+@import "~/styles/_variables.scss";
+
+fieldset {
+  border-radius: $border-radius;
+  padding: 1em;
+}
+
+.option {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 16px;
+
+  h3 {
+    // text-align: left;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  &__prepayment {
+    display: flex;
+    flex-direction: column;
+
+    &__details {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+
+      label {
+        label {
+          font-weight: 800;
+        }
+      }
+    }
+  }
+
+  > * {
+    display: flex;
+    justify-content: center;
+  }
+
+  span {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25em;
+    width: 100%;
+
+    label {
+      display: flex;
+      gap: 0.5em;
+    }
+
+    > label:first-of-type {
+      display: flex;
+      font-size: 1.2em;
+      font-weight: 800;
+    }
+  }
+
+  // &__address {
+  //   display: grid;
+  //   grid-template-columns: repeat(2, 1fr);
+  //   gap: 16px;
+
+  //   @media only screen and (max-width: 550px) {
+  //     grid-template-columns: 1fr;
+  //   }
+
+  //   > *:first-of-type {
+  //     grid-column: span 2;
+
+  //     @media only screen and (max-width: 550px) {
+  //       grid-column: span 1;
+  //     }
+  //   }
+  // }
+}

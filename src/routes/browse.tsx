@@ -1,15 +1,29 @@
-import { For } from "solid-js";
-import { A } from "solid-start";
+import { For, Show } from "solid-js";
+import { A, createRouteData, RouteDataArgs, useRouteData } from "solid-start";
+import { fetchProducts } from "~/api/api";
 import { Card } from "~/components/Card";
+import { Spinner } from "~/components/Spinner";
 import { PRODUCTS } from "~/const/products";
 import "./browse.scss";
 
+export function routeData() {
+  return createRouteData(async () => {
+    const response = await fetchProducts();
+    return response;
+  });
+}
+
 export default function Browse() {
+  const products = useRouteData<typeof routeData>();
+
   return (
     <div class="products">
       <p>hold my beer</p>
       <div class="products__container">
-        <For each={Array.from(PRODUCTS.values())}>
+        <Show when={products?.loading}>
+          <Spinner />
+        </Show>
+        <For each={products()} fallback={<div>nothing to see</div>}>
           {(product) => (
             <A href={`/product/${product.productId}`}>
               <Card class="products__container__item">
